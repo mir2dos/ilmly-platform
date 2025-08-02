@@ -1,5 +1,7 @@
+import ComingSoon from "@/components/layouts/ComingSoon";
+
 const AdminPage = () => {
-  return <div>Admin Page</div>;
+  return <ComingSoon />;
 };
 
 export default AdminPage;

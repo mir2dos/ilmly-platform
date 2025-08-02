@@ -1,5 +1,7 @@
+import ComingSoon from "@/components/layouts/ComingSoon";
+
 const StudentPage = () => {
-  return <div>Student Page</div>;
+  return <ComingSoon />;
 };
 
 export default StudentPage;
