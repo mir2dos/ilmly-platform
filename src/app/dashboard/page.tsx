@@ -1,6 +1,6 @@
 // import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
-export default function Dashboard() {
+export default async function Dashboard() {
   return (
     <>
       <p className="pb-8">
