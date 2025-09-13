@@ -6,7 +6,6 @@ import { TriangleAlert } from "lucide-react";
 
 import { useAuthActions } from "@convex-dev/auth/react";
 
-import Link from "next/link";
 import Image from "next/image";
 
 import { SignInFlow } from "@/types/auth";
