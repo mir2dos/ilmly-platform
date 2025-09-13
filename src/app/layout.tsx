@@ -1,39 +1,33 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Inter } from "next/font/google";
+import "@/styles/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const interSans = Inter({
+  variable: "--font-inter-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Ilmly Platform",
-  description: "Ilmly Platform App",
+  description:
+    "All-in-one management platform for learning centers in Uzbekistan.",
 };
 
-const RootLayout = ({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) => {
+}>) {
   return (
-    <ClerkProvider afterSignOutUrl="/sign-in">
+    <ConvexAuthNextjsServerProvider>
       <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          {children}
+        <body className={`${interSans.variable} antialiased`}>
+          <ConvexClientProvider>{children}</ConvexClientProvider>
         </body>
       </html>
-    </ClerkProvider>
+    </ConvexAuthNextjsServerProvider>
   );
-};
-
-export default RootLayout;
+}

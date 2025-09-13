@@ -1,9 +1,12 @@
-// import { auth } from "@clerk/nextjs/server";
-// import { redirect } from "next/navigation";
+"use client";
 
-const Home = async () => {
-  // User is signed in, redirect to dashboard
-  return <a href="/sign-in">Sign in</a>;
-};
+import UserButton from "@/components/auth/user-button";
 
-export default Home;
+export default function Home() {
+  return (
+    <div>
+      <UserButton />
+      Signed in
+    </div>
+  );
+}
