@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "vercel-build": "bun run build && bunx convex deploy"
   },
   "dependencies": {
     "@auth/core": "^0.40.0",

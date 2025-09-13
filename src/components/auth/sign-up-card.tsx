@@ -63,7 +63,7 @@ export default function SignUpCard({ setState }: SignUpCardProps) {
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Hey, there! 👋</h1>
                 <p className="text-muted-foreground text-balance">
-                  Let's create your Ilmly account
+                  Let&apos;s create your Ilmly account
                 </p>
               </div>
               {!!error && (
