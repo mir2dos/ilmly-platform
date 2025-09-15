@@ -1,9 +1,9 @@
-import ComingSoon from "@/components/layouts/coming-soon";
+import TestList from "@/features/tests/test-list";
 
 export default function TestsPage() {
   return (
     <section>
-      <ComingSoon />
+      <TestList />
     </section>
   );
 }
