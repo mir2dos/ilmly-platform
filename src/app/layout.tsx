@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
-import { ConvexClientProvider } from "./ConvexClientProvider";
+import { ConvexClientProvider } from "@/providers/convex-client-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const interSans = Inter({
   variable: "--font-inter-sans",
@@ -23,9 +24,16 @@ export default function RootLayout({
 }>) {
   return (
     <ConvexAuthNextjsServerProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={`${interSans.variable} antialiased`}>
-          <ConvexClientProvider>{children}</ConvexClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ConvexClientProvider>{children}</ConvexClientProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ConvexAuthNextjsServerProvider>

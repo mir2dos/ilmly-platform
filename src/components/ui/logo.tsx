@@ -2,21 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface LogoProps {
-  variant?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8";
   size?: "sm" | "md";
 }
 
-const Logo = ({ variant = "4", size = "md" }: LogoProps) => {
+export default function Logo({ size = "md" }: LogoProps) {
+  const props = {
+    alt: "Logo",
+    width: size == "sm" ? 60 : 80,
+    height: size == "sm" ? 60 : 80,
+  };
+
   return (
     <Link href="/">
       <Image
-        src={`/logo/logo-${variant}.svg`}
-        alt="logo"
-        width={size == "sm" ? "60" : "80"}
-        height={size == "sm" ? "30" : "40"}
+        src="/assets/logo/logo-light.svg"
+        {...props}
+        className="dark:hidden"
+      />
+      <Image
+        src="/assets/logo/logo-dark.svg"
+        {...props}
+        className="hidden dark:block"
       />
     </Link>
   );
-};
-
-export default Logo;
+}

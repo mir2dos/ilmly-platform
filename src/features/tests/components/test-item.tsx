@@ -5,9 +5,9 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card";
-import { TestItemType } from "@/types/tests";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { TestItemType } from "../types";
 
 interface TestItemProps {
   test: TestItemType;

@@ -1,4 +1,4 @@
-import TestList from "@/features/tests/test-list";
+import TestList from "@/features/tests/components/test-list";
 
 export default function TestsPage() {
   return (

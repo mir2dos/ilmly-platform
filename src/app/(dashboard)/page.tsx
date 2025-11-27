@@ -1,6 +1,6 @@
 "use client";
 
-import { useCurrentUser } from "@/hooks/use-current-user";
+import { useCurrentUser } from "@/features/auth/hooks/use-current-user";
 
 import Loader from "@/components/ui/loader";
 

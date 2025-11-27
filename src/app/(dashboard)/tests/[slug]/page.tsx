@@ -1,4 +1,4 @@
-import { getTest } from "@/features/tests/getTest";
+import { getTest } from "@/features/tests/hooks/getTest";
 
 export default async function TestPage({
   params,
