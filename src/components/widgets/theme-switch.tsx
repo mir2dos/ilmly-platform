@@ -1,22 +1,44 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/button-group";
+import { useEffect, useState } from "react";
 
 export function ThemeSwitch() {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const handleClick = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  const THEME_OPTIONS = {
+    system: <MonitorIcon />,
+    light: <SunIcon />,
+    dark: <MoonIcon />,
   };
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
-    <Button variant="outline" size="icon" onClick={handleClick}>
-      <Sun className="dark:hidden" />
-      <Moon className="hidden dark:block" />
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+    <>
+      <ButtonGroup>
+        {Object.entries(THEME_OPTIONS).map(([key, icon]) => {
+          return (
+            <Button
+              key={key}
+              variant={key === theme ? "default" : "outline"}
+              size="icon"
+              onClick={() => setTheme(key)}
+            >
+              {icon}
+            </Button>
+          );
+        })}
+      </ButtonGroup>
+    </>
   );
 }

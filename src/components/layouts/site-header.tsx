@@ -2,22 +2,19 @@
 
 import { SearchIcon } from "lucide-react";
 
-import { usePathname } from "next/navigation";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-
-import { useIsMobile } from "@/hooks/use-mobile";
-import UserButton from "@/features/auth/components/user-button";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "../ui/input-group";
-import { ThemeSwitch } from "../widgets/theme-switch";
+} from "@/components/ui/input-group";
+
+import UserButton from "@/features/auth/components/user-button";
 
 export default function SiteHeader() {
-  const pathname = usePathname();
   const isMobile = useIsMobile();
 
   return (
@@ -42,7 +39,6 @@ export default function SiteHeader() {
           </InputGroupAddon>
         </InputGroup>
         <UserButton />
-        <ThemeSwitch />
       </div>
     </header>
   );

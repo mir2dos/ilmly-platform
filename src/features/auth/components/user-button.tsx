@@ -39,7 +39,7 @@ export default function UserButton() {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Avatar className="h-8 w-8 rounded-lg">
+          <Avatar className="h-8 w-8 rounded-full">
             <AvatarImage src={image} alt={name} />
             <AvatarFallback className="bg-primary text-primary-foreground">
               {avatarFallback}

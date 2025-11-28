@@ -1,13 +1,15 @@
 "use client";
 
 import {
-  CalendarCheck,
-  FileCheck,
-  Home,
-  MessageCircle,
-  UserCircle,
-  Users,
-  Wallet,
+  BarChart2Icon,
+  CalendarCheckIcon,
+  FileCheckIcon,
+  HomeIcon,
+  MessageCircleIcon,
+  SettingsIcon,
+  UserCircleIcon,
+  UsersIcon,
+  WalletIcon,
 } from "lucide-react";
 
 import Link from "next/link";
@@ -21,17 +23,37 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
 import Logo from "@/components/ui/logo";
 
 const mentorSidebarItems = [
-  { name: "Dashboard", url: "/", icon: Home },
-  { name: "Xabarlar", url: "/messages", icon: MessageCircle },
-  { name: "Guruhlar", url: "/groups", icon: Users },
-  { name: "O'quvchilar", url: "/students", icon: UserCircle },
-  { name: "Davomat", url: "/attendance", icon: CalendarCheck },
-  { name: "Testlar", url: "/tests", icon: FileCheck },
-  { name: "To'lovlar", url: "/payments", icon: Wallet },
+  { name: "Dashboard", url: "/", icon: HomeIcon },
+  { name: "Guruhlar", url: "/groups", icon: UsersIcon },
+  { name: "O'quvchilar", url: "/students", icon: UserCircleIcon },
+  { name: "Davomat", url: "/attendance", icon: CalendarCheckIcon },
+  { name: "Testlar", url: "/tests", icon: FileCheckIcon, separate: true },
+  { name: "Xabarlar", url: "/messages", icon: MessageCircleIcon },
+  { name: "Sozlamalar", url: "/settings", icon: SettingsIcon },
+];
+
+const adminSidebarItems = [
+  { name: "Dashboard", url: "/", icon: HomeIcon },
+  { name: "Mentorlar", url: "/mentors", icon: UsersIcon },
+  { name: "Guruhlar", url: "/groups", icon: UsersIcon },
+  { name: "O'quvchilar", url: "/students", icon: UserCircleIcon },
+  { name: "Davomat", url: "/attendance", icon: CalendarCheckIcon },
+  { name: "Darslar", url: "/lessons", icon: FileCheckIcon },
+  { name: "Testlar", url: "/tests", icon: FileCheckIcon, separate: true },
+  { name: "Xabarlar", url: "/messages", icon: MessageCircleIcon },
+  { name: "To'lovlar", url: "/payments", icon: WalletIcon },
+  {
+    name: "Statistika",
+    url: "/analytics",
+    icon: BarChart2Icon,
+    separate: true,
+  },
+  { name: "Sozlamalar", url: "/settings", icon: SettingsIcon },
 ];
 
 export default function AppSidebar() {
@@ -57,6 +79,7 @@ export default function AppSidebar() {
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
+                {item.separate && <SidebarSeparator />}
               </SidebarMenu>
             );
           })}
