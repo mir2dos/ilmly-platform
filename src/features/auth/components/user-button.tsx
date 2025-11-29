@@ -19,14 +19,14 @@ import Loader from "@/components/ui/loader";
 import { useRouter } from "next/navigation";
 
 export default function UserButton() {
-  const { data, isLoading } = useCurrentUser();
+  const { userData, isLoading } = useCurrentUser();
   const { signOut } = useAuthActions();
   const router = useRouter();
 
   if (isLoading) return <Loader />;
-  if (!data) return null;
+  if (!userData) return null;
 
-  const { name, image, email } = data;
+  const { name, image, email } = userData;
 
   const avatarFallback = name!.charAt(0).toUpperCase();
 

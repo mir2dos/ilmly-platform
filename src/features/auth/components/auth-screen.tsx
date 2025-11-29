@@ -1,14 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { SignInFlow } from "../types";
 
 import SignInCard from "@/features/auth/components/sign-in-card";
 import SignUpCard from "@/features/auth/components/sign-up-card";
+import { useConvexAuth } from "convex/react";
+import { useRouter } from "next/navigation";
 
 export default function AuthScreen() {
+  const { isAuthenticated, isLoading } = useConvexAuth();
+  const router = useRouter();
   const [state, setState] = useState<SignInFlow>("signIn");
+
+  useEffect(() => {
+    if (isAuthenticated && !isLoading) {
+      router.push("/");
+    }
+  }, [isAuthenticated, isLoading, router]);
+
+  if (isLoading || isAuthenticated) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">

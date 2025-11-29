@@ -29,7 +29,7 @@ export default function SiteHeader() {
             />
           </>
         )}
-        <p>Dasboard</p>
+        <p>Dashboard</p>
       </div>
       <div className="flex items-center gap-2">
         <InputGroup className="w-xs">
