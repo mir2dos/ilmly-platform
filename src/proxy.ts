@@ -6,15 +6,18 @@ import {
 
 const isPublicPage = createRouteMatcher(["/auth"]);
 
-export default convexAuthNextjsMiddleware(async (request, { convexAuth }) => {
-  if (!isPublicPage(request) && !(await convexAuth.isAuthenticated())) {
-    return nextjsMiddlewareRedirect(request, "/auth");
-  }
+export default convexAuthNextjsMiddleware(
+  async (request, { convexAuth }) => {
+    if (!isPublicPage(request) && !(await convexAuth.isAuthenticated())) {
+      return nextjsMiddlewareRedirect(request, "/auth");
+    }
 
-  if (isPublicPage(request) && (await convexAuth.isAuthenticated())) {
-    return nextjsMiddlewareRedirect(request, "/");
-  }
-});
+    if (isPublicPage(request) && (await convexAuth.isAuthenticated())) {
+      return nextjsMiddlewareRedirect(request, "/");
+    }
+  },
+  { cookieConfig: { maxAge: 60 * 60 * 24 * 30 } } // 30 days
+);
 
 export const config = {
   // The following matcher runs middleware on all routes
