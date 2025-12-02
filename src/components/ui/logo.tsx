@@ -16,12 +16,16 @@ export default function Logo({ size = "md" }: LogoProps) {
     <Link href="/">
       <Image
         src="/assets/logo/logo-light.svg"
-        {...props}
+        alt={props.alt}
+        width={props.width}
+        height={props.height}
         className="dark:hidden"
       />
       <Image
         src="/assets/logo/logo-dark.svg"
-        {...props}
+        alt={props.alt}
+        width={props.width}
+        height={props.height}
         className="hidden dark:block"
       />
     </Link>

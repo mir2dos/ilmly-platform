@@ -17,7 +17,7 @@ import { useCurrentUser } from "@/features/auth/hooks/use-current-user";
 export default function SettingsPage() {
   const updateProfile = useMutation(api.users.updateProfile);
   const { signOut } = useAuthActions();
-  const { userData, isLoading } = useCurrentUser();
+  const { userData } = useCurrentUser();
   const router = useRouter();
 
   const [fullName, setFullName] = useState("");
@@ -96,7 +96,7 @@ export default function SettingsPage() {
       </form>
 
       <article className="space-y-4">
-        <h2 className="text-2xl font-bold">Ko'rinish</h2>
+        <h2 className="text-2xl font-bold">Ko&apos;rinish</h2>
         <hr />
         <div className="grid items-center gap-x-4 gap-y-6 md:grid-cols-[1fr_3fr]">
           <p>Mavzu</p>
