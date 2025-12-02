@@ -5,12 +5,12 @@ import { useCurrentUser } from "@/features/auth/hooks/use-current-user";
 import Loader from "@/components/ui/loader";
 
 export default function DashboardHome() {
-  const { data, isLoading } = useCurrentUser();
+  const { userData, isLoading } = useCurrentUser();
 
   if (isLoading) return <Loader />;
-  if (!data) return null;
+  if (!userData) return null;
 
-  const { name } = data;
+  const { name } = userData;
 
   return <div>Hey, {name?.split(" ")[0]}!</div>;
 }
